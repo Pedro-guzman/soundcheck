@@ -12,18 +12,18 @@ const VideoGallery = () => {
     <section id="videos" className="video-section container">
       <h2 className="section-title">En <span>Acción</span></h2>
       <p className="section-subtitle">Mira nuestras últimas presentaciones y videoclips.</p>
-      
+
       <div className="videos-grid">
         {videos.map((vid, idx) => (
           <div className="video-card" key={idx}>
             {vid.type === 'youtube' ? (
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src={`https://www.youtube.com/embed/${vid.id}`} 
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://youtube.com/shorts/1nBjo4RNvUw?si=zMvKPX711KZj_rbi/${vid.id}`}
                 title={vid.title}
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
               ></iframe>
