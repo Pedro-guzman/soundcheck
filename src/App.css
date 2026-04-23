@@ -1,0 +1,7 @@
+/* App.css is intentionally left empty. Global styles are in index.css. Modular styles will be used in components if necessary, but most can be handled by standard classes. */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
