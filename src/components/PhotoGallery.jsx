@@ -7,13 +7,12 @@ const PhotoGallery = () => {
   const photos = [
     '/images/frank_bateria2.jpeg',
     '/images/eduardo_bajo.JPG',
+    '/images/bajo2.jpeg',
     '/images/pedro_guitarra.jpeg',
     '/images/bajo1.jpeg',
-    '/images/bajo2.jpeg',
     '/images/bajo3.jpeg',
     '/images/bajo4.jpeg',
     '/images/bajo5.jpeg',
-    '/images/bajo6.jpeg',
     '/images/bajo7.jpeg',
     '/images/foto1.jpeg',
     '/images/foto2.jpeg',
@@ -46,11 +45,11 @@ const PhotoGallery = () => {
         ))}
       </div>
 
-      {!showAll && (
-        <div className="text-center" style={{ marginTop: '3rem' }}>
-          <button className="btn btn-outline" onClick={() => setShowAll(true)}>Ver más</button>
-        </div>
-      )}
+      <div className="text-center" style={{ marginTop: '3rem' }}>
+        <button className="btn btn-outline" onClick={() => setShowAll(!showAll)}>
+          {showAll ? 'Ver menos' : 'Ver más'}
+        </button>
+      </div>
     </section>
   );
 };
