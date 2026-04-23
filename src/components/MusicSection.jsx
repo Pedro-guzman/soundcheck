@@ -15,8 +15,8 @@ const MusicSection = () => {
             </p>
             <ul className="music-list">
               <li><Music size={18} className="icon"/> Covers aclamados (Caifanes, Soda Stereo, Enanitos Verdes)</li>
-              <li><Disc3 size={18} className="icon"/> Sencillo Original: "Ecos de Neón"</li>
-              <li><Disc3 size={18} className="icon"/> EP en producción: "Carga Visual"</li>
+              <li><Disc3 size={18} className="icon"/> Sencillo Original: "Tiempo perdido"</li>
+              <li><Disc3 size={18} className="icon"/> EP en producción: "Canciones de apego y otros temas dolorosos"</li>
             </ul>
             <a href="#contact" className="btn" style={{ marginTop: '1.5rem' }}>Pide nuestro Setlist</a>
           </div>
