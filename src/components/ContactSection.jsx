@@ -24,7 +24,7 @@ const ContactSection = () => {
               <a href="https://youtube.com/@soundcheck_mx-h9y?si=GXNTGXNVg-AQYScE" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube size={28} /></a>
             </div>
 
-            <a href="https://wa.me/523312482586" target="_blank" rel="noreferrer" className="btn whatsapp-btn">
+            <a href="https://wa.me/523310687855" target="_blank" rel="noreferrer" className="btn whatsapp-btn">
               Escríbenos por WhatsApp
             </a>
           </div>
