@@ -22,7 +22,7 @@ const ContactSection = () => {
             <div className="social-links">
               <a href="https://instagram.com/soundcheck_mx1" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram size={28} /></a>
               <a href="https://tiktok.com/@soundcheck_899199" target="_blank" rel="noreferrer" aria-label="TikTok"><FaTiktok size={28} /></a>
-              <a href="https://www.youtube.com/results?search_query=soundcheck_mx" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube size={28} /></a>
+              <a href="https://youtube.com/@soundcheck6684?si=jqJuA048hIhVmEA5" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube size={28} /></a>
             </div>
             
             <a href="https://wa.me/523312482586" target="_blank" rel="noreferrer" className="btn whatsapp-btn">
