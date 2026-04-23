@@ -20,7 +20,7 @@ const VideoGallery = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/embed/${vid.id}`}
+                src={`https://www.youtube.com/shorts/${vid.id}`}
                 title={vid.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
