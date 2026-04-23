@@ -37,7 +37,7 @@ const VideoGallery = () => {
         ))}
       </div>
       <div className="text-center" style={{ marginTop: '3rem' }}>
-        <a href="https://youtube.com/@soundcheck6684?si=jqJuA048hIhVmEA5" target="_blank" rel="noreferrer" className="btn btn-outline">Visita nuestro Canal</a>
+        <a href="https://youtube.com/@soundcheck_mx-h9y?si=GXNTGXNVg-AQYScE" target="_blank" rel="noreferrer" className="btn btn-outline">Visita nuestro Canal</a>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import './AboutSection.css';
 const AboutSection = () => {
   const members = [
     {
-      name: 'Francisco',
+      name: 'Frank',
       role: 'Baterista',
       img: '/images/frank_bateria2.jpeg',
     },
@@ -22,7 +22,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="about-section container">
       <h2 className="section-title">Nuestra <span>Historia</span></h2>
-      
+
       <div className="about-content">
         <div className="about-text">
           <p>
@@ -32,7 +32,7 @@ const AboutSection = () => {
             Nos especializamos en interpretar los mejores himnos del <em>Rock en Español</em>, acompañados de un emocionante proyecto original de canciones de rock pop con un sonido fresco, moderno y potente. Si buscas una experiencia musical auténtica para tu evento o bar, nosotros somos la opción ideal.
           </p>
         </div>
-        
+
         <div className="members-grid">
           {members.map((member, index) => (
             <div className="member-card" key={index}>
