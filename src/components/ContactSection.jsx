@@ -21,7 +21,6 @@ const ContactSection = () => {
 
             <div className="social-links">
               <a href="https://instagram.com/soundcheck_mx1" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram size={28} /></a>
-              <a href="https://facebook.com/Soundcheck" target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebook size={28} /></a>
               <a href="https://tiktok.com/@soundcheck_899199" target="_blank" rel="noreferrer" aria-label="TikTok"><FaTiktok size={28} /></a>
             </div>
             
