@@ -3,7 +3,7 @@ import { FaYoutube } from 'react-icons/fa';
 
 const VideoGallery = () => {
   const videos = [
-    { title: 'Prueba de sonido en C3 Stage Guadalajara', id: 'cl-CpzpnZFI', type: 'youtube' },
+    { title: 'Prueba de sonido en C3 Stage Guadalajara', id: '1nBjo4RNvUw', type: 'youtube' },
     { title: 'En Vivo Bar 1', id: 'video_id_2' },
     { title: 'Canción Original', id: 'video_id_3' }
   ];
@@ -20,7 +20,7 @@ const VideoGallery = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/shorts/${vid.id}`}
+                src={`https://www.youtube.com/embed/${vid.id}`}
                 title={vid.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
