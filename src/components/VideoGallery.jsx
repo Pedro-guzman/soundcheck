@@ -3,8 +3,8 @@ import { FaYoutube } from 'react-icons/fa';
 
 const VideoGallery = () => {
   const videos = [
-    { title: 'En Vivo Bar 1', id: 'video_id_1' },
-    { title: 'Cover Rock 1', id: 'video_id_2' },
+    { title: 'Prueba de sonido en C3 Stage Guadalajara', id: 'cl-CpzpnZFI', type: 'youtube' },
+    { title: 'En Vivo Bar 1', id: 'video_id_2' },
     { title: 'Canción Original', id: 'video_id_3' }
   ];
 
@@ -16,10 +16,23 @@ const VideoGallery = () => {
       <div className="videos-grid">
         {videos.map((vid, idx) => (
           <div className="video-card" key={idx}>
-            <div className="video-placeholder">
-              <FaYoutube size={64} className="youtube-icon" />
-              <p>Thumbnail {vid.title}</p>
-            </div>
+            {vid.type === 'youtube' ? (
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src={`https://www.youtube.com/embed/${vid.id}`} 
+                title={vid.title}
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              ></iframe>
+            ) : (
+              <div className="video-placeholder">
+                <FaYoutube size={64} className="youtube-icon" />
+                <p>Thumbnail {vid.title}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
