@@ -6,7 +6,7 @@ const PhotoGallery = () => {
 
   const photos = [
     '/images/frank_bateria2.jpeg',
-    '/images/eduardo_bajo.JPG',
+    '/images/foto9.jpeg',
     '/images/bajo2.jpeg',
     '/images/pedro_guitarra.jpeg',
     '/images/bajo1.jpeg',
@@ -22,7 +22,6 @@ const PhotoGallery = () => {
     '/images/foto6.jpeg',
     '/images/foto7.jpeg',
     '/images/foto8.jpeg',
-    '/images/foto9.jpeg',
     '/images/foto10.jpeg',
     '/images/foto11.jpeg',
     '/images/foto12.jpeg',
