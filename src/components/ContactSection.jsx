@@ -29,18 +29,11 @@ const ContactSection = () => {
             </a>
           </div>
 
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <input type="text" id="name" placeholder="Tu Nombre completo" required />
-            </div>
-            <div className="form-group">
-              <input type="email" id="email" placeholder="Correo electrónico" required />
-            </div>
-            <div className="form-group">
-              <textarea id="message" rows="5" placeholder="Cuéntanos sobre tu evento..." required></textarea>
-            </div>
-            <button type="submit" className="btn">Enviar Mensaje</button>
-          </form>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <a href="#home" className="btn btn-outline" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+              Volver al inicio
+            </a>
+          </div>
         </div>
       </div>
     </section>

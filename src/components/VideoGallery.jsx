@@ -4,7 +4,7 @@ import { FaYoutube } from 'react-icons/fa';
 const VideoGallery = () => {
   const videos = [
     { title: 'Prueba de sonido en C3 Stage Guadalajara', id: '1nBjo4RNvUw', type: 'youtube' },
-    { title: 'En Vivo Bar 1', id: 'video_id_2' },
+    { title: 'Presentación en Vivo', id: 'Ob_75o4SbJc', type: 'youtube' },
     { title: 'Canción Original', id: 'video_id_3' }
   ];
 
