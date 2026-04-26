@@ -5,7 +5,7 @@ const VideoGallery = () => {
   const videos = [
     { title: 'Prueba de sonido en C3 Stage Guadalajara', id: '1nBjo4RNvUw', type: 'youtube' },
     { title: 'Presentación en Vivo', id: 'Ob_75o4SbJc', type: 'youtube' },
-    { title: 'Canción Original', id: 'video_id_3' }
+    { title: 'Canción Original', id: '2PEsj6-9W28', type: 'youtube' }
   ];
 
   return (
