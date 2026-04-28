@@ -4,69 +4,37 @@ import { useRef, useState } from 'react';
 
 const MusicSection = () => {
   const audioRef = useRef(null);
-  const fadeIntervalRef = useRef(null);
-  const timeoutRef = useRef(null);
-
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const startFadeOut = () => {
-    const audio = audioRef.current;
-
-    fadeIntervalRef.current = setInterval(() => {
-      if (audio.volume > 0.05) {
-        audio.volume -= 0.05;
-      } else {
-        audio.volume = 0;
-        audio.pause();
-        setIsPlaying(false);
-        clearInterval(fadeIntervalRef.current);
-      }
-    }, 200);
-  };
-
-  const playAudio = async () => {
+  const playPreview = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
     try {
-      clearInterval(fadeIntervalRef.current);
-      clearTimeout(timeoutRef.current);
-
+      // Reiniciar audio
+      audio.currentTime = 0;
       audio.volume = 1;
 
-      await audio.play();
+      await audio.play(); // importante para evitar fallos silenciosos
       setIsPlaying(true);
 
-      // iniciar fade después de 15s
-      timeoutRef.current = setTimeout(startFadeOut, 15000);
+      // Después de 15 segundos inicia fade out
+      setTimeout(() => {
+        let fadeInterval = setInterval(() => {
+          if (audio.volume > 0.05) {
+            audio.volume -= 0.05;
+          } else {
+            audio.volume = 0;
+            audio.pause();
+            setIsPlaying(false);
+            clearInterval(fadeInterval);
+          }
+        }, 200);
+      }, 15000);
 
-    } catch (err) {
-      console.error("Error al reproducir:", err);
+    } catch (error) {
+      console.error("Error al reproducir:", error);
     }
-  };
-
-  const pauseAudio = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    audio.pause();
-    setIsPlaying(false);
-
-    clearInterval(fadeIntervalRef.current);
-    clearTimeout(timeoutRef.current);
-  };
-
-  const restartAudio = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    clearInterval(fadeIntervalRef.current);
-    clearTimeout(timeoutRef.current);
-
-    audio.currentTime = 0;
-    audio.volume = 1;
-
-    playAudio();
   };
 
   return (
@@ -78,13 +46,16 @@ const MusicSection = () => {
           <div className="music-info">
             <h3>Rock Pop Original & Covers</h3>
             <p className="music-desc">
-              Nuestro repertorio está diseñado para mantener la energía al máximo.
+              Nuestro repertorio está diseñado para mantener la energía al máximo. Combinamos los clásicos más grandes del rock en español con nuestras canciones originales, logrando un setlist dinámico y explosivo.
             </p>
             <ul className="music-list">
-              <li><Music size={18} className="icon" /> Covers (Caifanes, Soda Stereo, Enanitos Verdes)</li>
-              <li><Disc3 size={18} className="icon" /> "Tiempo perdido"</li>
-              <li><Disc3 size={18} className="icon" /> EP en producción</li>
+              <li><Music size={18} className="icon" /> Covers aclamados (Caifanes, Soda Stereo, Enanitos Verdes)</li>
+              <li><Disc3 size={18} className="icon" /> Sencillo Original: "Tiempo perdido"</li>
+              <li><Disc3 size={18} className="icon" /> EP en producción: "Canciones de apego y otros temas dolorosos"</li>
             </ul>
+            <a href="#contact" className="btn" style={{ marginTop: '1.5rem' }}>
+              Pide nuestro Setlist
+            </a>
           </div>
 
           <div className="audio-player-container">
@@ -101,29 +72,22 @@ const MusicSection = () => {
               </div>
 
               <div className="audio-controls">
-                <audio ref={audioRef}>
-                  <source src="/audio/tiempo_perdido.mp3" type="audio/mpeg" />
+                <audio ref={audioRef} className="custom-audio">
+                  <source src="/audio/Tiempo_perdido.mp3" type="audio/mpeg" />
+                  Tu navegador no soporta el reproductor de audio.
                 </audio>
 
-                <div className="controls">
-                  {!isPlaying ? (
-                    <button className="btn play" onClick={playAudio}>
-                      ▶ Play
-                    </button>
-                  ) : (
-                    <button className="btn pause" onClick={pauseAudio}>
-                      ⏸ Pause
-                    </button>
-                  )}
-
-                  <button className="btn restart" onClick={restartAudio}>
-                    🔄 Reiniciar
-                  </button>
-                </div>
+                <button
+                  className="btn"
+                  onClick={playPreview}
+                  disabled={isPlaying}
+                >
+                  {isPlaying ? 'Reproduciendo...' : '▶ Escuchar fragmento'}
+                </button>
               </div>
 
               <p className="audio-footer">
-                Escucha un fragmento de nuestro sencillo.
+                Escucha un fragmento de nuestro primer sencillo original antes de su lanzamiento oficial.
               </p>
             </div>
           </div>
