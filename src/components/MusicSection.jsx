@@ -6,29 +6,35 @@ const MusicSection = () => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const playPreview = () => {
+  const playPreview = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Reiniciar audio
-    audio.currentTime = 0;
-    audio.volume = 1;
-    audio.play();
-    setIsPlaying(true);
+    try {
+      // Reiniciar audio
+      audio.currentTime = 0;
+      audio.volume = 1;
 
-    // Después de 15 segundos inicia fade out
-    setTimeout(() => {
-      let fadeInterval = setInterval(() => {
-        if (audio.volume > 0.05) {
-          audio.volume -= 0.05;
-        } else {
-          audio.volume = 0;
-          audio.pause();
-          setIsPlaying(false);
-          clearInterval(fadeInterval);
-        }
-      }, 200); // velocidad del fade
-    }, 15000); // 15 segundos
+      await audio.play(); // importante para evitar fallos silenciosos
+      setIsPlaying(true);
+
+      // Después de 15 segundos inicia fade out
+      setTimeout(() => {
+        let fadeInterval = setInterval(() => {
+          if (audio.volume > 0.05) {
+            audio.volume -= 0.05;
+          } else {
+            audio.volume = 0;
+            audio.pause();
+            setIsPlaying(false);
+            clearInterval(fadeInterval);
+          }
+        }, 200);
+      }, 15000);
+
+    } catch (error) {
+      console.error("Error al reproducir:", error);
+    }
   };
 
   return (
@@ -67,7 +73,7 @@ const MusicSection = () => {
 
               <div className="audio-controls">
                 <audio ref={audioRef} className="custom-audio">
-                  <source src="/audio/tiempo_perdido.m4a" type="audio/mp4" />
+                  <source src="/audio/tiempo_perdido.mp3" type="audio/mpeg" />
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 
