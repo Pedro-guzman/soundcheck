@@ -67,7 +67,7 @@ const MusicSection = () => {
 
               <div className="audio-controls">
                 <audio ref={audioRef} className="custom-audio">
-                  <source src="/audio/tiempo_perdido.m4a" type="audio/mpeg" />
+                  <source src="/audio/tiempo_perdido.m4a" type="audio/mp4" />
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 
