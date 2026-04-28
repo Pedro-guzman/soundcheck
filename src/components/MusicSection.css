@@ -45,7 +45,7 @@
   color: var(--accent-color);
 }
 
-.spotify-placeholder {
+.audio-player-container {
   flex: 1;
   min-width: 300px;
   display: flex;
@@ -53,36 +53,65 @@
   align-items: center;
 }
 
-.spotify-mockup {
+.audio-player-card {
   background-color: #121212;
   border-radius: 12px;
-  padding: 3rem;
+  padding: 2.5rem;
   width: 100%;
-  max-width: 400px;
-  text-align: center;
+  max-width: 450px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  border: 1px solid #222;
+  border: 1px solid #333;
 }
 
-.spotify-disc {
-  width: 120px;
-  height: 120px;
-  background: conic-gradient(#111, #333, #111, #333, #111);
-  border-radius: 50%;
-  margin: 0 auto 2rem;
+.audio-header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 0 20px rgba(29, 185, 84, 0.2);
-  animation: spin 10s linear infinite;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.inner-disc {
-  width: 40px;
-  height: 40px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  border: 5px solid #121212;
+.spinning-disc {
+  color: var(--accent-color);
+  animation: spin 10s linear infinite;
+  min-width: 48px;
+}
+
+.audio-header h4 {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+
+.song-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.custom-audio {
+  width: 100%;
+  height: 44px;
+  outline: none;
+  border-radius: 22px;
+  color-scheme: dark; /* Helps standard browsers render a dark audio player */
+}
+
+.custom-audio::-webkit-media-controls-panel {
+  background-color: #2a2a2a;
+}
+.custom-audio::-webkit-media-controls-current-time-display,
+.custom-audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+}
+
+.audio-footer {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #888;
+  text-align: center;
+  line-height: 1.5;
 }
 
 @keyframes spin {
