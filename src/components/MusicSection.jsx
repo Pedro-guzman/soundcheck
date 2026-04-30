@@ -4,37 +4,92 @@ import { useRef, useState } from 'react';
 
 const MusicSection = () => {
   const audioRef = useRef(null);
+  const fadeIntervalRef = useRef(null);
+  const timeoutRef = useRef(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const playPreview = async () => {
+  // detectar móviles
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const startFadeOut = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    let steps = 20;
+    let stepTime = 50;
+    let volumeStep = audio.volume / steps;
+
+    fadeIntervalRef.current = setInterval(() => {
+      try {
+        if (audio.volume > volumeStep) {
+          audio.volume -= volumeStep;
+        } else {
+          audio.volume = 0;
+          audio.pause();
+          setIsPlaying(false);
+          clearInterval(fadeIntervalRef.current);
+        }
+      } catch (e) {
+        // fallback para móviles que bloquean volumen
+        audio.pause();
+        setIsPlaying(false);
+        clearInterval(fadeIntervalRef.current);
+      }
+    }, stepTime);
+  };
+
+  const playAudio = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
     try {
-      // Reiniciar audio
+      clearInterval(fadeIntervalRef.current);
+      clearTimeout(timeoutRef.current);
+
       audio.currentTime = 0;
       audio.volume = 1;
 
-      await audio.play(); // importante para evitar fallos silenciosos
+      await audio.play();
       setIsPlaying(true);
 
-      // Después de 15 segundos inicia fade out
-      setTimeout(() => {
-        let fadeInterval = setInterval(() => {
-          if (audio.volume > 0.05) {
-            audio.volume -= 0.05;
-          } else {
-            audio.volume = 0;
-            audio.pause();
-            setIsPlaying(false);
-            clearInterval(fadeInterval);
-          }
-        }, 200);
-      }, 15000);
+      // ⏱️ 10 segundos
+      if (isMobile) {
+        timeoutRef.current = setTimeout(() => {
+          audio.pause();
+          setIsPlaying(false);
+        }, 10000);
+      } else {
+        timeoutRef.current = setTimeout(startFadeOut, 10000);
+      }
 
     } catch (error) {
       console.error("Error al reproducir:", error);
     }
+  };
+
+  const pauseAudio = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.pause();
+    setIsPlaying(false);
+
+    clearInterval(fadeIntervalRef.current);
+    clearTimeout(timeoutRef.current);
+  };
+
+  const restartAudio = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    clearInterval(fadeIntervalRef.current);
+    clearTimeout(timeoutRef.current);
+
+    audio.currentTime = 0;
+    audio.volume = 1;
+
+    playAudio();
   };
 
   return (
@@ -46,7 +101,8 @@ const MusicSection = () => {
           <div className="music-info">
             <h3>Rock Pop Original & Covers</h3>
             <p className="music-desc">
-              Nuestro repertorio está diseñado para mantener la energía al máximo. Combinamos los clásicos más grandes del rock en español con nuestras canciones originales, logrando un setlist dinámico y explosivo.
+              Nuestro repertorio está diseñado para mantener la energía al máximo.
+              Combinamos los clásicos más grandes del rock en español con nuestras canciones originales.
             </p>
             <ul className="music-list">
               <li><Music size={18} className="icon" /> Covers aclamados (Caifanes, Soda Stereo, Enanitos Verdes)</li>
@@ -77,17 +133,25 @@ const MusicSection = () => {
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 
-                <button
-                  className="btn"
-                  onClick={playPreview}
-                  disabled={isPlaying}
-                >
-                  {isPlaying ? 'Reproduciendo...' : '▶ Escuchar fragmento'}
-                </button>
+                <div className="controls">
+                  {!isPlaying ? (
+                    <button className="btn play" onClick={playAudio}>
+                      ▶ Play
+                    </button>
+                  ) : (
+                    <button className="btn pause" onClick={pauseAudio}>
+                      ⏸ Pause
+                    </button>
+                  )}
+
+                  <button className="btn restart" onClick={restartAudio}>
+                    🔄 Reiniciar
+                  </button>
+                </div>
               </div>
 
               <p className="audio-footer">
-                Escucha un fragmento de nuestro primer sencillo original antes de su lanzamiento oficial.
+                Escucha un fragmento de 10 segundos de nuestro primer sencillo original.
               </p>
             </div>
           </div>
