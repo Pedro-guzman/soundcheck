@@ -116,7 +116,7 @@
 .btn {
   border: none;
   padding: 12px 18px;
-  border-radius: 999px;
+  border-radius: 10x;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
