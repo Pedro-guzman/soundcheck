@@ -106,7 +106,7 @@ const MusicSection = () => {
             </p>
             <ul className="music-list">
               <li><Music size={18} className="icon" /> Covers aclamados (Caifanes, Soda Stereo, Enanitos Verdes)</li>
-              <li><Disc3 size={18} className="icon" /> Sencillo Original: "Tiempo perdido"</li>
+              <li><Disc3 size={18} className="icon" /> Sencillo Original: "No es un tiempo"</li>
               <li><Disc3 size={18} className="icon" /> EP en producción: "Canciones de apego y otros temas dolorosos"</li>
             </ul>
             <a href="#contact" className="btn" style={{ marginTop: '1.5rem' }}>
@@ -123,13 +123,13 @@ const MusicSection = () => {
                 />
                 <div>
                   <h4>Adelanto Exclusivo</h4>
-                  <p className="song-title">"Tiempo Perdido"</p>
+                  <p className="song-title">"No es un tiempo"</p>
                 </div>
               </div>
 
               <div className="audio-controls">
                 <audio ref={audioRef} className="custom-audio">
-                  <source src="/audio/Tiempo_perdido.mp3" type="audio/mpeg" />
+                  <source src="/audio/no_es_un_tiempo.mp3" type="audio/mpeg" />
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 
@@ -145,7 +145,7 @@ const MusicSection = () => {
                   )}
 
                   <button className="btn restart" onClick={restartAudio}>
-                    🔄 Reiniciar
+                    Reiniciar
                   </button>
                 </div>
               </div>
