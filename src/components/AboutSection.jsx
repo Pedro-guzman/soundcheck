@@ -5,17 +5,17 @@ const AboutSection = () => {
     {
       name: 'Frank',
       role: 'Baterista',
-      img: '/images/frank_bateria2.jpeg',
+      img: '/images/frank_vista_arriba',
     },
     {
       name: 'Eduardo',
       role: 'Bajista y Vocalista',
-      img: '/images/eduardo_bajo.JPG',
+      img: '/images/lalo_vista_arriba',
     },
     {
       name: 'Pedro',
       role: 'Guitarrista y Voz Principal',
-      img: '/images/pedro_guitarra.jpeg',
+      img: '/images/peter_vista_arriba',
     }
   ];
 
