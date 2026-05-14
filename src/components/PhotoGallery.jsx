@@ -2,9 +2,9 @@ import './PhotoGallery.css';
 
 const PhotoGallery = () => {
   const photos = [
-    '/images/frank_bateria2.jpeg',
-    '/images/foto9.jpeg',
-    '/images/bajo2.jpeg',
+    '/images/frank_vista_arriba.jpeg',
+    '/images/peter_vista_arriba.jpeg',
+    '/images/lalo_vista_arriba.jpeg',
   ];
 
   return (
