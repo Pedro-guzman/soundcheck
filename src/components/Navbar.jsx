@@ -8,7 +8,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,11 +22,12 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <a href="#home" className="navbar-logo" onClick={closeMenu}>
-          SOUND<span>CHECK</span>
+          <img src="/images/logo.jpg" alt="Peter y Frank Logo" className="logo-img" />
+          <span className="logo-text">Peter <span className="highlight">y</span> Frank</span>
         </a>
 
         <div className="menu-icon" onClick={toggleMenu}>
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </div>
 
         <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
@@ -37,19 +38,19 @@ const Navbar = () => {
             <a href="#about" className="nav-links" onClick={closeMenu}>Nosotros</a>
           </li>
           <li className="nav-item">
+            <a href="#music" className="nav-links" onClick={closeMenu}>Música</a>
+          </li>
+          <li className="nav-item">
             <a href="#videos" className="nav-links" onClick={closeMenu}>Videos</a>
           </li>
           <li className="nav-item">
             <a href="#gallery" className="nav-links" onClick={closeMenu}>Galería</a>
           </li>
           <li className="nav-item">
-            <a href="#music" className="nav-links" onClick={closeMenu}>Música</a>
-          </li>
-          <li className="nav-item">
             <a href="#events" className="nav-links" onClick={closeMenu}>Eventos</a>
           </li>
           <li className="nav-item">
-            <a href="#contact" className="nav-links" onClick={closeMenu}>Contacto</a>
+            <a href="#contact" className="nav-links nav-cta" onClick={closeMenu}>Contacto</a>
           </li>
         </ul>
       </div>

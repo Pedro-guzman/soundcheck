@@ -1,5 +1,6 @@
 import './MusicSection.css';
-import { Music, Disc3 } from 'lucide-react';
+import { Music, Disc3, Radio } from 'lucide-react';
+import { FaSpotify, FaApple } from 'react-icons/fa';
 import { useRef, useState } from 'react';
 
 const MusicSection = () => {
@@ -10,7 +11,7 @@ const MusicSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   // detectar móviles
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const startFadeOut = () => {
     const audio = audioRef.current;
@@ -31,7 +32,6 @@ const MusicSection = () => {
           clearInterval(fadeIntervalRef.current);
         }
       } catch (e) {
-        // fallback para móviles que bloquean volumen
         audio.pause();
         setIsPlaying(false);
         clearInterval(fadeIntervalRef.current);
@@ -53,7 +53,6 @@ const MusicSection = () => {
       await audio.play();
       setIsPlaying(true);
 
-      // ⏱️ 10 segundos
       if (isMobile) {
         timeoutRef.current = setTimeout(() => {
           audio.pause();
@@ -96,34 +95,53 @@ const MusicSection = () => {
     <section id="music" className="music-section">
       <div className="container">
         <h2 className="section-title">Nuestra <span>Música</span></h2>
+        <div className="section-divider"></div>
 
         <div className="music-content">
           <div className="music-info">
-            <h3>Rock Pop Original & Covers</h3>
+            <span className="repertoire-badge">Pop Indie & Música Original</span>
+            <h3 className="music-heading">Sonido potente, auténtico y directo al corazón</h3>
             <p className="music-desc">
-              Nuestro repertorio está diseñado para mantener la energía al máximo.
-              Combinamos los clásicos más grandes del rock en español con nuestras canciones originales.
+              Un espectáculo diseñado para conectar. Interpretamos la mejor selección de música original y pop indie recopilada en nuestro proyecto <strong>"Canciones de Apego"</strong>.
             </p>
+
             <ul className="music-list">
-              <li><Music size={18} className="icon" /> Covers aclamados (Caifanes, Soda Stereo, Enanitos Verdes)</li>
-              <li><Disc3 size={18} className="icon" /> Sencillo Original: "No es un tiempo"</li>
-              <li><Disc3 size={18} className="icon" /> EP en producción: "Canciones de apego y otros temas dolorosos"</li>
+              <li>
+                <div className="list-icon-wrapper coral"><Disc3 size={18} /></div>
+                <span><strong>Primer sencillo original:</strong> "No es un tiempo"</span>
+              </li>
+              <li>
+                <div className="list-icon-wrapper teal"><Radio size={18} /></div>
+                <span><strong>EP Original:</strong> "Canciones de apego y otros temas dolorosos"</span>
+              </li>
             </ul>
-            <a href="#contact" className="btn" style={{ marginTop: '1.5rem' }}>
-              Pide nuestro Setlist
-            </a>
+
+            <div className="streaming-links">
+              <span className="streaming-label">Escúchanos en:</span>
+              <div className="platform-badges">
+                <a href="#music" className="platform-btn spotify" title="Spotify">
+                  <FaSpotify size={20} /> Spotify
+                </a>
+                <a href="#music" className="platform-btn apple" title="Apple Music">
+                  <FaApple size={20} /> Apple Music
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="audio-player-container">
             <div className="audio-player-card">
               <div className="audio-header">
-                <Disc3
-                  size={48}
-                  className={`spinning-disc ${isPlaying ? 'playing' : ''}`}
-                />
+                <div className="disc-wrapper">
+                  <Disc3
+                    size={54}
+                    className={`spinning-disc ${isPlaying ? 'playing' : ''}`}
+                  />
+                </div>
                 <div>
-                  <h4>Adelanto Exclusivo</h4>
-                  <p className="song-title">"No es un tiempo"</p>
+                  <span className="badge-preview">Preview Exclusivo</span>
+                  <h4 className="song-title">"No es un tiempo"</h4>
+                  <p className="artist-subtitle">Peter y Frank</p>
                 </div>
               </div>
 
@@ -133,25 +151,25 @@ const MusicSection = () => {
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 
-                <div className="controls">
+                <div className="controls-row">
                   {!isPlaying ? (
-                    <button className="btn play" onClick={playAudio}>
-                      ▶ Play
+                    <button className="player-btn play-btn" onClick={playAudio}>
+                      ▶ Reproducir
                     </button>
                   ) : (
-                    <button className="btn pause" onClick={pauseAudio}>
-                      ⏸ Pause
+                    <button className="player-btn pause-btn" onClick={pauseAudio}>
+                      ⏸ Pausar
                     </button>
                   )}
 
-                  <button className="btn restart" onClick={restartAudio}>
-                    Reiniciar
+                  <button className="player-btn restart-btn" onClick={restartAudio}>
+                    ↺ Reiniciar
                   </button>
                 </div>
               </div>
 
               <p className="audio-footer">
-                Escucha un fragmento de 10 segundos de nuestro primer sencillo original.
+                ⚡ Fragmento de 10 segundos del primer sencillo de <strong>Peter y Frank</strong>.
               </p>
             </div>
           </div>

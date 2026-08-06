@@ -1,7 +1,7 @@
 .footer {
-  background-color: #050505;
-  padding: 4rem 2rem;
-  border-top: 2px solid var(--accent-color);
+  background-color: var(--bg-secondary);
+  padding: 3.5rem 1.5rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -12,30 +12,49 @@
   gap: 2rem;
 }
 
-.footer-logo h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 900;
-  letter-spacing: 2px;
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.footer-logo h2 span {
-  color: var(--accent-color);
+.footer-logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-teal);
 }
 
-.footer-logo p {
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.footer-title .highlight {
+  color: var(--accent-coral);
+  font-style: italic;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
   color: var(--text-secondary);
+  margin: 0;
 }
 
-.footer-links {
+.footer-info {
   text-align: right;
-  color: #777;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 .designer-tag {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #555;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -44,7 +63,10 @@
     flex-direction: column;
     text-align: center;
   }
-  .footer-links {
+  .footer-brand {
+    flex-direction: column;
+  }
+  .footer-info {
     text-align: center;
   }
 }

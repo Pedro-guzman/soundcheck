@@ -1,38 +1,66 @@
 import './ContactSection.css';
-import { Mail, Phone } from 'lucide-react';
-import { FaInstagram, FaFacebook, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { ArrowUp } from 'lucide-react';
+import { FaInstagram, FaTiktok, FaYoutube, FaSpotify, FaApple } from 'react-icons/fa';
 
 const ContactSection = () => {
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section id="contact" className="contact-section">
       <div className="container">
-        <h2 className="section-title">Contáctanos</h2>
-        <p className="section-subtitle">¿Listo para llevar tu evento al siguiente nivel?</p>
+        <h2 className="section-title">Contacto & <span>Redes</span></h2>
+        <p className="section-subtitle">¿Listo para llevar la música de Peter y Frank a tu evento?</p>
+        <div className="section-divider"></div>
 
-        <div className="contact-container">
+        <div className="contact-card">
           <div className="contact-info">
-            <h3>Información de Contacto</h3>
-            <p>Estamos disponibles para eventos, fiestas privadas, foros y más. ¡Escríbenos y hagamos ruido!</p>
-
-            <ul className="info-list">
-              <li><Phone className="icon" /> 33 1068 7855</li>
-            </ul>
-
-            <div className="social-links">
-              <a href="https://instagram.com/soundcheck_mx1" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram size={28} /></a>
-              <a href="https://tiktok.com/@soundcheck_899199" target="_blank" rel="noreferrer" aria-label="TikTok"><FaTiktok size={28} /></a>
-              <a href="https://youtube.com/@soundcheck_mx-h9y?si=GXNTGXNVg-AQYScE" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube size={28} /></a>
+            <div className="brand-badge-wrapper">
+              <img src="/images/logo.jpg" alt="Peter y Frank Logo" className="contact-logo" />
+              <div>
+                <h3 className="contact-brand-title">Peter y Frank</h3>
+                <p className="contact-brand-sub">Rock en Español & Canciones de Apego</p>
+              </div>
             </div>
 
-            <a href="https://wa.me/523310687855" target="_blank" rel="noreferrer" className="btn whatsapp-btn">
-              Escríbenos por WhatsApp
-            </a>
+            <p className="contact-desc">
+              Estamos disponibles para conciertos, eventos privados, festivales y presentaciones en bar. ¡Síguenos y contáctanos a través de nuestras redes sociales!
+            </p>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <a href="#home" className="btn btn-outline" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-              Volver al inicio
-            </a>
+          <div className="socials-box">
+            <h4 className="socials-heading">Síguenos & Escúchanos</h4>
+
+            <div className="social-grid">
+              <a href="https://www.instagram.com/peter_frank_music?igsh=MWhvcmszODllb3p3bA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="social-tile instagram">
+                <FaInstagram size={26} />
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.tiktok.com/@peter.y.frank?_r=1&_t=ZS-98fCyjiJ4IX" target="_blank" rel="noreferrer" className="social-tile tiktok">
+                <FaTiktok size={24} />
+                <span>TikTok</span>
+              </a>
+              <a href="https://youtube.com/@soundcheck_mx-h9y?si=GXNTGXNVg-AQYScE" target="_blank" rel="noreferrer" className="social-tile youtube">
+                <FaYoutube size={26} />
+                <span>YouTube</span>
+              </a>
+              <a href="#music" className="social-tile spotify">
+                <FaSpotify size={26} />
+                <span>Spotify</span>
+              </a>
+              <a href="#music" className="social-tile apple">
+                <FaApple size={26} />
+                <span>Apple Music</span>
+              </a>
+            </div>
+
+            <div className="back-top-wrapper">
+              <button onClick={scrollToTop} className="back-top-btn">
+                <ArrowUp size={18} /> Volver arriba
+              </button>
+            </div>
           </div>
         </div>
       </div>

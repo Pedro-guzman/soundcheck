@@ -1,23 +1,24 @@
 .navbar {
-  background: transparent;
-  height: 80px;
+  background: rgba(250, 247, 242, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  height: 84px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.1rem;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
-  transition: all 0.4s ease;
-  padding: 0 2rem;
+  transition: all 0.3s ease;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid rgba(230, 223, 212, 0.6);
 }
 
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
-  height: 70px;
+  background: rgba(250, 247, 242, 0.95);
+  box-shadow: 0 4px 20px rgba(43, 45, 47, 0.08);
+  height: 72px;
 }
 
 .navbar-container {
@@ -25,43 +26,60 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1140px;
 }
 
 .navbar-logo {
-  color: var(--text-primary);
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 900;
-  text-decoration: none;
   display: flex;
   align-items: center;
-  letter-spacing: 2px;
+  gap: 0.75rem;
+  text-decoration: none;
 }
 
-.navbar-logo span {
-  color: var(--accent-color);
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(27, 147, 158, 0.2);
+  border: 2px solid var(--accent-teal);
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .logo-img {
+  transform: rotate(6deg) scale(1.05);
+}
+
+.logo-text {
+  color: var(--text-primary);
+  font-family: var(--font-brand-logo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.logo-text .highlight {
+  color: var(--accent-coral);
+  font-style: italic;
+  font-weight: 600;
 }
 
 .nav-menu {
   display: flex;
+  align-items: center;
   list-style: none;
-  text-align: center;
-}
-
-.nav-item {
-  margin-left: 2rem;
+  gap: 1.75rem;
 }
 
 .nav-links {
   color: var(--text-primary);
   text-decoration: none;
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: 1px;
-  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.4rem 0;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-links::after {
@@ -71,16 +89,34 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease;
+  background-color: var(--accent-teal);
+  transition: width 0.25s ease;
+  border-radius: 1px;
 }
 
 .nav-links:hover {
-  color: var(--accent-color);
+  color: var(--accent-teal);
 }
 
 .nav-links:hover::after {
   width: 100%;
+}
+
+.nav-cta {
+  background-color: var(--accent-teal);
+  color: #ffffff !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(27, 147, 158, 0.25);
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+.nav-cta:hover {
+  background-color: var(--accent-teal-dark);
+  transform: translateY(-1px);
 }
 
 .menu-icon {
@@ -89,14 +125,9 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 900px) {
   .menu-icon {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
     z-index: 1000;
   }
 
@@ -105,33 +136,27 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
-    background: #0a0a0ae6;
-    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(250, 247, 242, 0.98);
+    backdrop-filter: blur(20px);
     justify-content: center;
     align-items: center;
+    gap: 2rem;
   }
 
   .nav-menu.active {
-    background: #0a0a0ae6;
     left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 999;
-  }
-
-  .nav-item {
-    margin: 1.5rem 0;
   }
 
   .nav-links {
-    text-align: center;
-    font-size: 2rem;
-    padding: 2rem;
-    display: table;
+    font-size: 1.5rem;
+  }
+  
+  .nav-cta {
+    font-size: 1.3rem;
+    padding: 0.75rem 2rem;
   }
 }
