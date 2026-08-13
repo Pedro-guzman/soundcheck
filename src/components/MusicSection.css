@@ -279,8 +279,37 @@
   display: none;
 }
 
+.spotify-preview-wrapper {
+  margin-top: 1.25rem;
+}
+
+.spotify-preview-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: #1DB954;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(29, 185, 84, 0.25);
+}
+
+.spotify-preview-btn:hover {
+  background: #1aa34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(29, 185, 84, 0.35);
+  color: #ffffff;
+}
+
 .audio-footer {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   font-size: 0.88rem;
   color: var(--text-muted);
   text-align: center;

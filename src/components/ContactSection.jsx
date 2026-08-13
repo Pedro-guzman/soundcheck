@@ -1,6 +1,6 @@
 import './ContactSection.css';
 import { ArrowUp } from 'lucide-react';
-import { FaInstagram, FaTiktok, FaYoutube, FaSpotify, FaApple } from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaYoutube, FaSpotify } from 'react-icons/fa';
 
 const ContactSection = () => {
   const scrollToTop = (e) => {
@@ -46,13 +46,9 @@ const ContactSection = () => {
                 <FaYoutube size={26} />
                 <span>YouTube</span>
               </a>
-              <a href="#music" className="social-tile spotify">
+              <a href="https://open.spotify.com/intl-es/artist/3jxeclbZ3pNcwhSQEstdGZ?si=X0RdR2czTAK-ui-tvPZv6A" target="_blank" rel="noreferrer" className="social-tile spotify">
                 <FaSpotify size={26} />
                 <span>Spotify</span>
-              </a>
-              <a href="#music" className="social-tile apple">
-                <FaApple size={26} />
-                <span>Apple Music</span>
               </a>
             </div>
 

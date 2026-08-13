@@ -1,6 +1,6 @@
 import './MusicSection.css';
-import { Music, Disc3, Radio } from 'lucide-react';
-import { FaSpotify, FaApple } from 'react-icons/fa';
+import { Disc3, Radio } from 'lucide-react';
+import { FaSpotify } from 'react-icons/fa';
 import { useRef, useState } from 'react';
 
 const MusicSection = () => {
@@ -108,7 +108,7 @@ const MusicSection = () => {
             <ul className="music-list">
               <li>
                 <div className="list-icon-wrapper coral"><Disc3 size={18} /></div>
-                <span><strong>Primer sencillo original:</strong> "No es un tiempo"</span>
+                <span><strong>Sencillo destacado:</strong> "Estoy cansado"</span>
               </li>
               <li>
                 <div className="list-icon-wrapper teal"><Radio size={18} /></div>
@@ -119,11 +119,14 @@ const MusicSection = () => {
             <div className="streaming-links">
               <span className="streaming-label">Escúchanos en:</span>
               <div className="platform-badges">
-                <a href="#music" className="platform-btn spotify" title="Spotify">
+                <a
+                  href="https://open.spotify.com/intl-es/artist/3jxeclbZ3pNcwhSQEstdGZ?si=X0RdR2czTAK-ui-tvPZv6A"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="platform-btn spotify"
+                  title="Spotify"
+                >
                   <FaSpotify size={20} /> Spotify
-                </a>
-                <a href="#music" className="platform-btn apple" title="Apple Music">
-                  <FaApple size={20} /> Apple Music
                 </a>
               </div>
             </div>
@@ -140,14 +143,14 @@ const MusicSection = () => {
                 </div>
                 <div>
                   <span className="badge-preview">Preview Exclusivo</span>
-                  <h4 className="song-title">"No es un tiempo"</h4>
+                  <h4 className="song-title">"Estoy cansado"</h4>
                   <p className="artist-subtitle">Peter y Frank</p>
                 </div>
               </div>
 
               <div className="audio-controls">
                 <audio ref={audioRef} className="custom-audio">
-                  <source src="/audio/no_es_un_tiempo.mp3" type="audio/mpeg" />
+                  <source src="/audio/Estoy_web.mp3" type="audio/mpeg" />
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 
@@ -168,8 +171,19 @@ const MusicSection = () => {
                 </div>
               </div>
 
+              <div className="spotify-preview-wrapper">
+                <a
+                  href="https://ffm.to/5c8943ab4de97921da3cc7ef222ef14eb86f64ed5cbd3257"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="spotify-preview-btn"
+                >
+                  <FaSpotify size={18} /> Escúchala en Spotify
+                </a>
+              </div>
+
               <p className="audio-footer">
-                ⚡ Fragmento de 10 segundos del primer sencillo de <strong>Peter y Frank</strong>.
+                ⚡ Fragmento de 10 segundos del sencillo de <strong>Peter y Frank</strong>.
               </p>
             </div>
           </div>
