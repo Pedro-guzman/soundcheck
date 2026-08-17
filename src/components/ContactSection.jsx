@@ -1,6 +1,7 @@
 import './ContactSection.css';
 import { ArrowUp } from 'lucide-react';
 import { FaInstagram, FaTiktok, FaYoutube, FaSpotify } from 'react-icons/fa';
+import { SiApplemusic } from 'react-icons/si';
 
 const ContactSection = () => {
   const scrollToTop = (e) => {
@@ -49,6 +50,10 @@ const ContactSection = () => {
               <a href="https://open.spotify.com/intl-es/artist/3jxeclbZ3pNcwhSQEstdGZ?si=X0RdR2czTAK-ui-tvPZv6A" target="_blank" rel="noreferrer" className="social-tile spotify">
                 <FaSpotify size={26} />
                 <span>Spotify</span>
+              </a>
+              <a href="https://music.apple.com/mx/artist/peter-y-frank/6801263212" target="_blank" rel="noreferrer" className="social-tile apple">
+                <SiApplemusic size={26} />
+                <span>Apple Music</span>
               </a>
             </div>
 

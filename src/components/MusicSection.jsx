@@ -1,6 +1,7 @@
 import './MusicSection.css';
-import { Disc3, Radio } from 'lucide-react';
+import { Disc3, Radio, ExternalLink } from 'lucide-react';
 import { FaSpotify } from 'react-icons/fa';
+import { SiApplemusic } from 'react-icons/si';
 import { useRef, useState } from 'react';
 
 const MusicSection = () => {
@@ -128,6 +129,15 @@ const MusicSection = () => {
                 >
                   <FaSpotify size={20} /> Spotify
                 </a>
+                <a
+                  href="https://music.apple.com/mx/artist/peter-y-frank/6801263212"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="platform-btn apple"
+                  title="Apple Music"
+                >
+                  <SiApplemusic size={20} /> Apple Music
+                </a>
               </div>
             </div>
           </div>
@@ -176,9 +186,9 @@ const MusicSection = () => {
                   href="https://ffm.to/5c8943ab4de97921da3cc7ef222ef14eb86f64ed5cbd3257"
                   target="_blank"
                   rel="noreferrer"
-                  className="spotify-preview-btn"
+                  className="spotify-preview-btn full-track-btn"
                 >
-                  <FaSpotify size={18} /> Escúchala en Spotify
+                  <ExternalLink size={18} /> Escúchala completa aquí
                 </a>
               </div>
 
