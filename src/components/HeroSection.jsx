@@ -20,7 +20,7 @@ const HeroSection = () => {
           Peter <span className="highlight-coral">y</span> Frank
         </h1>
         <p className="hero-subtitle">
-          Rock en Español & Canciones de Apego. La energía pura del rock pop en vivo para tu evento, bar o festival.
+          Pop Indie.
         </p>
 
         <div className="hero-btns">

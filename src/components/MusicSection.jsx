@@ -109,11 +109,11 @@ const MusicSection = () => {
             <ul className="music-list">
               <li>
                 <div className="list-icon-wrapper coral"><Disc3 size={18} /></div>
-                <span><strong>Sencillo destacado:</strong> "Estoy cansado"</span>
+                <span><strong>Sencillo destacado:</strong> "Nostalgia de amor"</span>
               </li>
               <li>
                 <div className="list-icon-wrapper teal"><Radio size={18} /></div>
-                <span><strong>EP Original:</strong> "Canciones de apego y otros temas dolorosos"</span>
+                <span><strong>EP Original:</strong> "Canciones de apego"</span>
               </li>
             </ul>
 
@@ -153,14 +153,14 @@ const MusicSection = () => {
                 </div>
                 <div>
                   <span className="badge-preview">Preview Exclusivo</span>
-                  <h4 className="song-title">"Estoy cansado"</h4>
+                  <h4 className="song-title">"Nostalgia de Amor"</h4>
                   <p className="artist-subtitle">Peter y Frank</p>
                 </div>
               </div>
 
               <div className="audio-controls">
                 <audio ref={audioRef} className="custom-audio">
-                  <source src="/audio/Estoy_web.mp3" type="audio/mpeg" />
+                  <source src="/audio/nostalgia.mp3" type="audio/mpeg" />
                   Tu navegador no soporta el reproductor de audio.
                 </audio>
 

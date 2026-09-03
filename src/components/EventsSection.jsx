@@ -32,7 +32,7 @@ const EventsSection = () => {
       </div>
 
       <div className="events-cta text-center">
-        <p>¿Quieres llevar a Peter y Frank a tu foro, bar o evento privado?</p>
+        <p>¿Quieres llevar a Peter y Frank a tu foro?</p>
         <a href="#contact" className="btn btn-teal">
           Consultar Disponibilidad <ArrowRight size={18} />
         </a>
